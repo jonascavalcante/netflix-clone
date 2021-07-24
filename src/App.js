@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import TmdbRequests from './API';
 
+import GlobalStyle from './styles/GlobalStyle';
+
 function App() {
 
   const [movieList, setMovieList] = useState('');
@@ -17,7 +19,7 @@ function App() {
 
   return (
     <>
-      {movieList !== '' && console.log(movieList)}
+      <GlobalStyle />
     </>
   );
 }
