@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import TmdbRequests from './API';
-import FeatureMovie from './components/FeatureMovie';
 
+import Header from './components/Header';
+import FeatureMovie from './components/FeatureMovie';
 import MovieRow from './components/MovieRow';
 
 import GlobalStyle from './styles/GlobalStyle';
@@ -11,6 +12,20 @@ function App() {
 
   const [movieList, setMovieList] = useState([]);
   const [featureData, setFeatureData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 70) {
+      setBlackHeader(true)
+    } else {
+      setBlackHeader(false)
+    }
+  };
+
+  useEffect(() => {
+    changeBackground()
+    window.addEventListener("scroll", changeBackground)
+  }, [])
 
   useEffect(() => {
     (async () => {
@@ -18,7 +33,7 @@ function App() {
       let list = await TmdbRequests.getHomeList();
       setMovieList(list);
 
-      let originals = list.filter( i => i.slug === 'originals');
+      let originals = list.filter(i => i.slug === 'originals');
       let randomMovies = Math.floor(Math.random() * (originals[0].items.results.length - 1));
       let movie = originals[0].items.results[randomMovies];
 
@@ -32,6 +47,8 @@ function App() {
   return (
     <>
       <GlobalStyle />
+
+      <Header black={blackHeader} />
 
       {featureData &&
         <FeatureMovie
