@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import TmdbRequests from './API';
+import FeatureMovie from './components/FeatureMovie';
 
 import MovieRow from './components/MovieRow';
 
@@ -12,7 +13,6 @@ function App() {
   const [featureData, setFeatureData] = useState(null);
 
   useEffect(() => {
-
     (async () => {
 
       let list = await TmdbRequests.getHomeList();
@@ -27,7 +27,6 @@ function App() {
       setFeatureData(movieInfo);
 
     })();
-
   }, [])
 
   return (
@@ -35,10 +34,12 @@ function App() {
       <GlobalStyle />
 
       {featureData &&
-        console.log(featureData)
+        <FeatureMovie
+          item={featureData}
+        />
       }
 
-      {movieList.length > 0 &&
+      {featureData && movieList.length > 0 &&
         movieList.map((item, key) => (
           <MovieRow
             key={key}
