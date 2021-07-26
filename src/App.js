@@ -7,6 +7,7 @@ import FeatureMovie from './components/FeatureMovie';
 import MovieRow from './components/MovieRow';
 
 import GlobalStyle from './styles/GlobalStyle';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -63,7 +64,12 @@ function App() {
             title={item.title}
             items={item.items}
           />
-        ))}
+        ))
+      }
+
+      {featureData &&
+        <Footer />
+      }
 
     </>
   );
