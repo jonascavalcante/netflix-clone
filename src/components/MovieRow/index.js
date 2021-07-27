@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Image, Item, List, ListArea, Title } from './styled';
+import { Arrow, Container, Image, Item, List, ListArea, NavigateBeforeIcon, NavigateNextIcon, Title } from './styled';
 
 const MovieRow = ({title, items}) => {
 
@@ -8,6 +8,14 @@ const MovieRow = ({title, items}) => {
     <Container>
 
       <Title>{title}</Title>
+
+      <Arrow className="arrowLeft">
+        <NavigateBeforeIcon style={{fontSize: 50}} />
+      </Arrow>
+
+      <Arrow className="arrowRight">
+        <NavigateNextIcon style={{fontSize: 50}} />
+      </Arrow>
 
       <ListArea>
 
