@@ -45,7 +45,9 @@ const ListArea = styled.div`
 `;
 
 const List = styled.div`
-  width: calc(150 * 150px); //A ser configurado
+  width: ${props => props.width * 150}px;
+  margin-left: ${props => props.marginLeft}px;
+  transition: all ease 0.2s;
 `;
 
 const Item = styled.div`
