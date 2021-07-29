@@ -8,6 +8,7 @@ import MovieRow from './components/MovieRow';
 
 import GlobalStyle from './styles/GlobalStyle';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 function App() {
 
@@ -69,6 +70,10 @@ function App() {
 
       {featureData &&
         <Footer />
+      }
+
+      {!featureData &&
+        <Loading />
       }
 
     </>
