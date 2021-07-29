@@ -9,6 +9,7 @@ import MovieRow from './components/MovieRow';
 import GlobalStyle from './styles/GlobalStyle';
 import Footer from './components/Footer';
 import Loading from './components/Loading';
+import Main from './components/Main';
 
 function App() {
 
@@ -59,13 +60,15 @@ function App() {
       }
 
       {featureData && movieList.length > 0 &&
-        movieList.map((item, key) => (
-          <MovieRow
-            key={key}
-            title={item.title}
-            items={item.items}
-          />
-        ))
+        <Main>
+          {movieList.map((item, key) => (
+            <MovieRow
+              key={key}
+              title={item.title}
+              items={item.items}
+            />
+          ))}
+        </Main>
       }
 
       {featureData &&

@@ -7,6 +7,10 @@ const FooterTag = styled.footer`
 
 const Paragraph = styled.p`
   color: #999;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const Span = styled.span``;

@@ -33,6 +33,10 @@ const Arrow = styled.div`
   ${Container}:hover & {
     opacity: 1;
   }
+
+  @media (max-width: 768px) {
+    opacity: 1;
+  }
 `;
 
 const NavigateBeforeIcon = styled(NavigateBefore)``;

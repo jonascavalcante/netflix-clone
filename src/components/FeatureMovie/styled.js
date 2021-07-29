@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Feature = styled.div`
-  height: 80vh;
+  height: 90vh;
 
   padding: 70px 30px;
 
@@ -17,11 +17,24 @@ const Feature = styled.div`
   ;
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 768px) {
+    height: 90vh;
+  }
+
+  @media (max-height: 450px) {
+    height: auto;
+  }
+
 `;
 
 const Name = styled.h2`
   font-size: 60px;
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
 const Info = styled.div`
@@ -30,6 +43,10 @@ const Info = styled.div`
 
   display: flex;
   gap: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Points = styled.p`
@@ -50,6 +67,11 @@ const Description = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 5; // Quantidade de linhas
   -webkit-box-orient: vertical;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    font-size: 16px;
+  }
 `;
 
 const Buttons = styled.div`
@@ -75,11 +97,19 @@ const Button = styled.button`
   &:hover {
     background-color: ${props => props.name === 'play' ? 'rgba(255, 255, 255, 0.85)' : 'rgba(51, 51, 51, 0.85)'};
   }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Genres = styled.p`
   font-size: 18px;
   color: #999;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export { Feature, Name, Info, Points, Year, Seasons, Description, Buttons, Button, Genres };
